@@ -5,7 +5,7 @@ NOW=$(date +%s)
 # Get the expiry date of our certificate.
 EXPIRE=$(openssl x509 -in /path/to/signed.crt -noout -enddate)
 # Trim the unecessary text at the start of the string.
-EXPIRE=${EXPIRE:9}
+EXPIRE=${EXPIRE#*=}
 # Convert the expiry date to seconds since epoch.
 EXPIRE=$(date --date="$EXPIRE" +%s)
 # Calculate the time left until the certificate expires.
