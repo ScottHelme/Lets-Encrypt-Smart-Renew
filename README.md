@@ -5,6 +5,7 @@ For further details see my blog post [here](https://scotthelme.co.uk/lets-encryp
 
 Let's Encrypt Smart Renew will check the remaining validity period of the certificate before calling your existing renewal script. Once the remaining validity falls below a set threshold, it will action the renewal. This means the script can be called much more frequently. 
 
+Set your domains name and email in the renew.sh script. Works with Certbot 0.10.2 version
 Replace your existing crontab entry with smartRenew.sh and update it to call your renewal script.
 
     0 * * * * /path/to/smartRenew.sh

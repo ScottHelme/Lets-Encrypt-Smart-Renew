@@ -5,10 +5,10 @@ RENEW=7
 # Set date for backup
 TODAY=`date '+%Y_%m_%d'`
 # If the certificate has less life remaining than we want.
-if ! openssl x509 -checkend $[ 86400 * $RENEW ] -noout -in /path/to/signed.crt
+if ! openssl x509 -checkend $[ 86400 * $RENEW ] -noout -in /path/to/cert.pem
         then
                 # Then make backup copy of existing cert before starting renew
-                cp /path/to/signed.crt /path/to/old/signed_backup_$TODAY.crt
+                cp /path/to/cert.pem /path/to/old/signed_backup_$TODAY.pem
                 # Then call the renewal script.
-                ./path/to/renew.sh
+                ./renew.sh
 fi
